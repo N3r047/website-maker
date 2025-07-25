@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Supabase Setup
+
+1. Create a project at [Supabase](https://app.supabase.com/).
+2. Get your Project URL and anon key from the Supabase dashboard (Project Settings > API).
+3. Add the following to your `.env.local` file.
+4. Use the provided client helpers in your code:
+
+**Client Component:**
+```ts
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+const supabase = createClientComponentClient();
+```
+
+**Server Component:**
+```ts
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+const supabase = createServerComponentClient({ cookies });
+```
